@@ -1,4 +1,4 @@
-{% extends index.html%} {% block content %} {% for todo in todos %}
+{% extends "index.html" %} {% block content %} {% for todo in todos %}
 <div class="todo-item">
   <div class="form-check">
     <input
@@ -27,4 +27,4 @@
 <div class="todo-input-container">
   <input type="text" />
 </div>
-{% endblock}
+{% endblock content %}
