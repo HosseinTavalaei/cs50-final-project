@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
@@ -17,48 +17,11 @@
       rel="stylesheet"
       href="{{url_for('static', filename='styles/styles.css')}}"
     />
-    <title>CS50 TODO</title>
-  </head>
-
-  <body class="app-body">
-    <nav id="sidebar">
-      <ul>
-        <li style="justify-content: flex-start">
-          <span class="logo">CS50 Final Project</span>
-        </li>
-        <li class="active">
-          <a href="#">
-            <i class="bi bi-house-door"></i>
-            <span>Tasks</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bi bi-star-fill"></i>
-            <span>Important</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bi bi-check-circle"></i>
-            <span>Completed</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            <i class="bi bi-person"></i>
-            <span>Profile</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <main>
-      {% block content%}
-      {% endblock%}
-    </main>
-
-    <script
+    <title>Register</title>
+</head>
+<body>
+    
+     <script
       type="text/javascript"
       src="{{url_for('static', filename='js/app.js')}}"
       defer
@@ -73,5 +36,5 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-  </body>
+</body>
 </html>
