@@ -14,50 +14,112 @@
 <body class="login-or-register">
   <div class="container">
     <form action="" method="POST">
-      {{ form.hidden_tag() }}
-      <fieldset class="form-group">
-        <legend class="text-center">Sign Up</legend>
-        <div class="d-flex justify-content-between align-items-center gap-3">
-          <div class="form-group my-2">
-          {{ form.firstname.label(class="form-control-label mb-2")}}
-          {{ form.firstname(class="form-control")}}
-        </div>
-        <div class="form-group my-2">
-          {{ form.lastname.label(class="form-control-label mb-2")}}
-          {{ form.lastname(class="form-control ")}}
-        </div>
-        </div>
-        <div class="form-group my-2">
-          {{ form.email.label(class="form-control-label mb-2")}}
-          {{ form.email(class="form-control ")}}
-        </div>
-        <div class="form-group my-2">
-          {{ form.password.label(class="form-control-label mb-2")}}
-          {{ form.password(class="form-control ")}}
-        </div>
-        <div class="form-group my-2">
-          {{ form.confirm_password.label(class="form-control-label mb-2")}}
-          {{ form.confirm_password(class="form-control ")}}
-        </div>
-      </fieldset>
-      <div class="form-group">
-         {{ form.submit(class="btn btn-custom") }}
-      </div>
+    {{ form.hidden_tag() }}
 
-      <div class=" pt-3">
-        <small class="text-muted">
-          Already have an account? <a href="{{url_for('login')}} " class="ml-2 text-black">Sign In</a>
-        </small>
-      </div>
-    </form>
+    <fieldset class="form-group">
+        <legend class="text-center">Sign Up</legend>
+
+        <!-- FIRSTNAME + LASTNAME side by side -->
+        <div class="d-flex justify-content-between align-items-center gap-3">
+            <!-- First Name -->
+            <div class="form-group my-2">
+                {{ form.firstname.label(class="form-label mb-2") }}
+                {% if form.firstname.errors %}
+                    {{ form.firstname(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.firstname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.firstname(class="form-control") }}
+                {% endif %}
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group my-2">
+                {{ form.lastname.label(class="form-label mb-2") }}
+                {% if form.lastname.errors %}
+                    {{ form.lastname(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.lastname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.lastname(class="form-control") }}
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group my-2">
+            {{ form.email.label(class="form-label mb-2") }}
+            {% if form.email.errors %}
+                {{ form.email(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.email(class="form-control") }}
+            {% endif %}
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="form-group my-2">
+            {{ form.password.label(class="form-label mb-2") }}
+            {% if form.password.errors %}
+                {{ form.password(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.password(class="form-control") }}
+            {% endif %}
+        </div>
+
+        <!-- CONFIRM PASSWORD -->
+        <div class="form-group my-2">
+            {{ form.confirm_password.label(class="form-label mb-2") }}
+            {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.confirm_password(class="form-control") }}
+            {% endif %}
+        </div>
+
+    </fieldset>
+
+    <!-- BUTTON -->
+    <div class="form-group">
+        {{ form.submit(class="btn btn-custom") }}
     </div>
-    <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-      crossorigin="anonymous"></script>
+
+    <div class="pt-3">
+        <small class="text-muted">
+            Already have an account?
+            <a href="{{ url_for('login') }}" class="ml-2 text-black">Sign In</a>
+        </small>
+    </div>
+</form>
+
+  </div>
+  <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
