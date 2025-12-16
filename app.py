@@ -1,8 +1,4 @@
-from src import app  
-from src import db   
-import src.forms
-import src.routes
-
+from src import app
 
 if __name__ == "__main__":
     app.run(debug=True)
