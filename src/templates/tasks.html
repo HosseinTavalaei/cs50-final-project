@@ -3,26 +3,26 @@
 {% block content %}
 <div class="container py-4">
 
-  <!-- عنوان صفحه -->
+  <!-- Page title -->
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold">My Tasks</h2>
   </div>
 
-  <!-- فرم اضافه کردن Todo -->
+  <!-- Add todo form -->
   <form method="POST" class="d-flex gap-2 mb-4">
     {{ form.hidden_tag() }}
     {{ form.title(class="form-control", placeholder="Add a new task...") }}
     {{ form.submit(class="btn btn-primary") }}
   </form>
 
-  <!-- لیست Todo ها -->
+  <!-- todos list-->
   {% if todos %}
   <ul class="list-group">
     {% for todo in todos %}
     <li class="list-group-item mb-2 rounded">
       <div class="d-flex justify-content-between align-items-center">
 
-        <!-- عنوان Todo و ستاره -->
+        <!-- todo title and star icon -->
         <div class="d-flex align-items-center gap-2">
           {% if todo.is_completed %}
           <s class="text-muted">{{ todo.title }}</s>
@@ -35,7 +35,7 @@
           {% endif %}
         </div>
 
-        <!-- دکمه‌ها -->
+        <!-- Buttons -->
         <div class="d-flex gap-1">
 
           <!-- Complete -->

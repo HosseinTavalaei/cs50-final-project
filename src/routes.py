@@ -113,5 +113,5 @@ def profile():
 
 @main.route('/logout')
 def logout():
-    session.clear()  # پاک کردن تمام session ها
+    session.clear()  
     return redirect('/login')

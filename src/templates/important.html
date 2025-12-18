@@ -3,19 +3,19 @@
 {% block content %}
 <div class="container py-4">
 
-  <!-- عنوان صفحه -->
+  <!-- Page title -->
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold">Important Tasks</h2>
   </div>
 
-  <!-- لیست Todo های مهم -->
+  <!-- Important todos -->
   {% if todos %}
   <ul class="list-group">
     {% for todo in todos %}
     <li class="list-group-item">
       <div class="d-flex justify-content-between align-items-center">
 
-        <!-- عنوان Todo و ستاره -->
+        <!-- todo title and star icon -->
         <div class="d-flex align-items-center gap-2">
           {% if todo.is_completed %}
           <s class="text-muted">{{ todo.title }}</s>
@@ -26,7 +26,7 @@
           <i class="bi bi-star-fill text-warning"></i>
         </div>
 
-        <!-- دکمه‌ها -->
+        <!-- Buttons -->
         <div class="d-flex gap-1">
 
           <!-- Complete -->
@@ -34,7 +34,7 @@
             <i class="bi bi-check-circle"></i>
           </a>
 
-          <!-- Important (تغییر وضعیت) -->
+          <!-- Important -->
           <a href="{{ url_for('main.important', id=todo.id) }}" class="btn btn-outline-warning btn-sm">
             <i class="bi bi-star"></i>
           </a>

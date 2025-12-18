@@ -184,10 +184,10 @@ form {
   position: fixed;
   bottom: 32px;
 
-  /* move to the right of the sidebar */
+  
   left: 250px;
 
-  /* center inside the main content area */
+  
   width: calc(100% - 250px);
   display: flex;
   justify-content: center;
