@@ -1,18 +1,25 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
-from cs50 import SQL
 
+db = SQLAlchemy()
 
-# Configure application
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
 
-# Configure session to use filesystem (instead of signed cookies)
-# app.config["SESSION_PERMANENT"] = False
-# app.config["SESSION_TYPE"] = "filesystem"
-app.config['SECRET_KEY'] = '5d4b4a1acdf7c0e4b22f47cef267c9be'
+    app.config['SECRET_KEY'] = '5d4b4a1acdf7c0e4b22f47cef267c9be'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Session(app)
+    app.config['SESSION_TYPE'] = 'filesystem'
+    Session(app)
 
-# db = SQL("sqlite:///todo.db")
+    db.init_app(app)
 
-from src import routes
+    from src import routes, models
+    app.register_blueprint(routes.main)
+
+    with app.app_context():
+        db.create_all()
+
+    return app

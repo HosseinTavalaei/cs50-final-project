@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container py-4">
+
+  <!-- عنوان صفحه -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">Important Tasks</h2>
+  </div>
+
+  <!-- لیست Todo های مهم -->
+  {% if todos %}
+  <ul class="list-group">
+    {% for todo in todos %}
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center">
+
+        <!-- عنوان Todo و ستاره -->
+        <div class="d-flex align-items-center gap-2">
+          {% if todo.is_completed %}
+          <s class="text-muted">{{ todo.title }}</s>
+          {% else %}
+          <span>{{ todo.title }}</span>
+          {% endif %}
+
+          <i class="bi bi-star-fill text-warning"></i>
+        </div>
+
+        <!-- دکمه‌ها -->
+        <div class="d-flex gap-1">
+
+          <!-- Complete -->
+          <a href="{{ url_for('main.complete', id=todo.id) }}" class="btn btn-outline-success btn-sm">
+            <i class="bi bi-check-circle"></i>
+          </a>
+
+          <!-- Important (تغییر وضعیت) -->
+          <a href="{{ url_for('main.important', id=todo.id) }}" class="btn btn-outline-warning btn-sm">
+            <i class="bi bi-star"></i>
+          </a>
+
+          <!-- Delete -->
+          <form method="POST" action="{{ url_for('main.delete_todo', id=todo.id) }}" class="d-inline-flex m-0 p-0">
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+              <i class="bi bi-trash"></i>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="text-muted text-center">No important tasks !</p>
+  {% endif %}
+
+</div>
+{% endblock %}

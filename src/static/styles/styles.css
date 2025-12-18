@@ -1,15 +1,16 @@
 :root {
-  --color-base: #090040;
-  --color-line: #42434a;
-  --color-hover: #222533;
-  --color-text: #e6e6ef;
-  --color-text-dark: #333446;
-  --color-accent: #5e63ff;
-  --color-secondary-text: #b0b3c1;
-  --color-form: #bd7bf7;
-  --color-input: #ff3f7f;
-  --color-todo: #ffc400;
+  --color-base: #f8fafc;
+  --color-line: #e2e8f0;
+  --color-hover: #e5e7eb;
+  --color-text: #0f172a;
+  --color-text-dark: #475569;
+  --color-accent: #3b82f6;
+  --color-secondary-text: #64748b;
+  --color-form: #6366f1;
+  --color-input: #10b981;
+  --color-todo: #f59e0b;
 }
+
 
 * {
   margin: 0;

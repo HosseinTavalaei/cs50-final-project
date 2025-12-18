@@ -5,31 +5,19 @@
 
   <!-- عنوان صفحه -->
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="fw-bold">My Tasks</h2>
+    <h2 class="fw-bold">Completed Tasks</h2>
   </div>
 
-  <!-- فرم اضافه کردن Todo -->
-  <form method="POST" class="d-flex gap-2 mb-4">
-    {{ form.hidden_tag() }}
-    {{ form.title(class="form-control", placeholder="Add a new task...") }}
-    {{ form.submit(class="btn btn-primary") }}
-  </form>
-
-  <!-- لیست Todo ها -->
+  <!-- لیست Todo های کامل شده -->
   {% if todos %}
   <ul class="list-group">
     {% for todo in todos %}
-    <li class="list-group-item mb-2 rounded">
+    <li class="list-group-item">
       <div class="d-flex justify-content-between align-items-center">
 
         <!-- عنوان Todo و ستاره -->
         <div class="d-flex align-items-center gap-2">
-          {% if todo.is_completed %}
           <s class="text-muted">{{ todo.title }}</s>
-          {% else %}
-          <span>{{ todo.title }}</span>
-          {% endif %}
-
           {% if todo.is_important %}
           <i class="bi bi-star-fill text-warning"></i>
           {% endif %}
@@ -38,7 +26,7 @@
         <!-- دکمه‌ها -->
         <div class="d-flex gap-1">
 
-          <!-- Complete -->
+          <!-- Complete (می‌تواند وضعیت را تغییر دهد) -->
           <a href="{{ url_for('main.complete', id=todo.id) }}" class="btn btn-outline-success btn-sm">
             <i class="bi bi-check-circle"></i>
           </a>
@@ -62,7 +50,7 @@
     {% endfor %}
   </ul>
   {% else %}
-  <p class="text-muted text-center">No tasks yet !</p>
+  <p class="text-muted text-center">No completed tasks !</p>
   {% endif %}
 
 </div>
