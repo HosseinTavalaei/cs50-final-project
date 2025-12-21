@@ -1,8 +1,11 @@
 
-# Todo App
-A multi-user Todo Web Application built with Flask, SQLite, and Bootstrap for CS50 final project.
+# Todo App 
+### Video Demo : https://youtu.be/n4ux5Ee4np4?si=uZXihAmjVf1Wxs0Y
 
-Manage your tasks efficiently with important and completed status and user authentication.
+#### Description :
+This project is a simple Todo application built to help users manage their daily tasks efficiently. The application allows users to create an account, log in, and manage their own personal todo list.
+
+Each user can add new tasks, mark them as completed or important, and delete tasks when they are no longer needed. All todos are user-specific, meaning each user can only see and manage their own tasks.
 
 
 ## Features
